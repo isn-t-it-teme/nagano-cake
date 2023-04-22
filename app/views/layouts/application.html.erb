@@ -24,9 +24,9 @@
               <!--会員がログインしている場合-->
               <% if customer_signed_in? %>
                 <li>
-                  <%#= link_to public_customer_path, class: 'nav-link text-dark' do %>
+                  <%= link_to public_customers_my_page_path, class: 'nav-link text-dark' do %>
                     <i class="fas fa-user"></i>マイページ
-                  <%# end %>
+                  <%end %>
                 </li>
                 <li>
                   <%= link_to public_items_path, class: 'nav-link text-dark' do %>
@@ -40,7 +40,7 @@
                 </li>
                 <li>
                   <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                    <i class="fas fa-sign-out"></i>ログアウト
+                    <i class="fas fa-sign-out-alt"></i>ログアウト
                   <% end %>
                 </li>
               <!--管理者がログインしている場合-->
@@ -67,7 +67,7 @@
                 </li>
                 <li>
                   <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                    <i class="fas fa-sign-out"></i>ログアウト
+                    <i class="fas fa-sign-out-alt"></i>ログアウト
                   <% end %>
                 </li>
               <!--ログインしていない場合-->

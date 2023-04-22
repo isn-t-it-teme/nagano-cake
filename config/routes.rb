@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     patch 'customers/my_page' => 'customers#update'
     get 'customers/my_page' => 'customers#show'
     get 'customers/my_page/edit' => 'customers#edit'
-    get 'customers/confilm'
-    patch 'customers/withdraw'
+    get 'customers/confilm' => 'customers#confilm'
+    patch 'customers/withdraw' => 'customers/withdraw'
     resources:cart_items, only: [:index, :create, :update, :destroy]
     delete 'cart_items/destroy_all'
     resources:orders, only: [:new, :create, :index, :show]
