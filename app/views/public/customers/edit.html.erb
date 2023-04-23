@@ -1,6 +1,6 @@
 <h3>会員情報編集</h3>
 
-<%= form_with model: @customer, url: public_customers_my_page_path do |f| %>
+<%= form_with model: @customer, url: customers_my_page_path do |f| %>
   <div class="field">
     <%= f.label :名前 %>
     <%= f.label :last_name, "(姓)" %>
@@ -37,5 +37,8 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div class="actions">
+    <%= f.submit "編集内容を保存" %>
+  </div>
 
 <% end %>
