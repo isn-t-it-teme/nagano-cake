@@ -15,11 +15,11 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
 
-  namespace :public do
+  scope module: :public do
     get '/about' => 'public/homes#about'
     resources:items, only: [:index, :show]
-    patch 'customers/my_page' => 'customers#update'
     get 'customers/my_page' => 'customers#show'
+    patch 'customers/my_page' => 'customers#update'
     get 'customers/my_page/edit' => 'customers#edit'
     get 'customers/confilm' => 'customers#confilm'
     patch 'customers/withdraw' => 'customers/withdraw'
