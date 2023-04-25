@@ -1,13 +1,14 @@
 <h3>商品一覧(全<%= @items.count %>件)</h3>
+<%= render 'genres_sidebar', genres: @genres %>
 
 <% @items.each do |f| %>
-<div>
-  <%= link_to item_path(f.id) do %>
-    <%= image_tag f.get_image(100,100) %>
-  <% end %>
-  <%= f.name %>
-  ¥<%= ((f.price*1.1).floor).to_s(:delimited) %>
-</div>
+  <div>
+    <%= link_to item_path(f.id) do %>
+      <%= image_tag f.get_image(100,100) %>
+    <% end %>
+    <%= f.name %>
+    ¥<%= ((f.price*1.1).floor).to_s(:delimited) %>
+  </div>
 
 <% end %>
 
