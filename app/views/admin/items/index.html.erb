@@ -22,7 +22,7 @@
             <%= f.name %>
           <% end %>
         </td>
-        <td><%= f.price %></td>
+        <td><%= f.price.to_s(:delimited) %></td>
         <td><%= f.genre.name %></td>
         <% if f.sale_status %>
           <td>販売中</td>
