@@ -10,30 +10,46 @@
       </tr>
     </thead>
     <tbody>
+      <% @cart_items.each do |cart_item| %>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <%= image_tag cart_item.item.get_image(50,50) %>
+          <%= cart_item.item.name %>
+        </td>
+        <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+        <td><%= cart_item.quantity %></td>
+        <td>
+          <%= cart_item.subtotal.to_s(:delimited) %>
+          <% @total += cart_item.subtotal %>
+        </td>
       </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
 
 <div>
-  <thed>
+  <thead>
     <tr>
       <th>送料</th>
       <th>商品合計</th>
       <th>請求合計</th>
     </tr>
-  </thed>
+  </thead>
   <tbody>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= @postage.to_s(:delimited) %></td>
+      <td><%= @total.to_s(:delimited) %></td>
+      <td><%= (@postage + @total).to_s(:delimited) %></td>
     </tr>
   </tbody>
 </div>
 
+<div>
+  <p><strong>支払方法</strong></p>
+
+</div>
+
+<div>
+  <p><strong>お届け先</strong></p>
+</div>
