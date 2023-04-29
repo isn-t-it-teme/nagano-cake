@@ -23,7 +23,7 @@
     <div>
       <%= f.radio_button :select_shipping_address,1 %>
       <%= f.label :select_shipping_address, "登録住所から選択" %><br>
-      <%= f.select :sipping_address_id, options_from_collection_for_select(@current_customer.shipping_addresses, :id, :address_display) %>
+      <%= f.select :shipping_address_id, options_from_collection_for_select(@current_customer.shipping_addresses, :id, :address_display) %>
     </div>
     <div>
       <%= f.radio_button :select_shipping_address,2 %>
