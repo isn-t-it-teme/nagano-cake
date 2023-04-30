@@ -28,10 +28,31 @@ class Public::OrdersController < ApplicationController
 
 
     end
+  end
 
-
-
-
+  def create
+    #確認画面から送られてきた、配送先、支払方法を取得
+    @order = Order.new(order_params)
+    #orderモデルに注文を保存
+    @order.save
+    @cart_items = current_customer.cart_items
+      @cart_items.each do |cart_item|
+        #OrderProductモデルを作成
+        @order_product = OrderProduct.new
+        #ordeir.idを取得
+        @order_product.order_id = @order.id
+        #item.idを取得
+        @order_product.item_id = cart_item.item.id
+        #数量を取得
+        @order_product.product_quantity = cart_item.quantity
+        #税抜価格を取得
+        @order_product.tax_price = cart_item.item.with_tax_price
+        #order_productモデルに保存
+        @order_product.save
+      end
+    #cart_item内の商品すべてを削除
+    @cart_items.destroy_all
+    redirect_to orders_completed_path
   end
 
   def completed
