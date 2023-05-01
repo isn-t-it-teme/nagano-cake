@@ -47,6 +47,8 @@ class Public::OrdersController < ApplicationController
         @order_product.product_quantity = cart_item.quantity
         #税抜価格を取得
         @order_product.tax_price = cart_item.item.with_tax_price
+        #制作ステータスを取得
+        @order_product.production_status = 0
         #order_productモデルに保存
         @order_product.save
       end
@@ -59,6 +61,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+
   end
 
   def show
@@ -67,6 +70,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment, :postal_code, :address, :name, :customer_id, :total_price, :postage, :status)
   end
 end

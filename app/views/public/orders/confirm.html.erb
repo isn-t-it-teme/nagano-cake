@@ -50,7 +50,7 @@
 
 <div>
   <p><strong>支払方法</strong></p>
-  <p><%= @order.payment_method_i18n %></p>
+  <p><%= @order.payment_i18n %></p>
 </div>
 
 <div>
@@ -62,9 +62,10 @@
 <%= f.hidden_field :postal_code, :value => @order.postal_code %>
 <%= f.hidden_field :address, :value => @order.address %>
 <%= f.hidden_field :name, :value => @order.name %>
-<%= f.hidden_field :payment_method, :value => @order.payment_method %>
+<%= f.hidden_field :payment, :value => @order.payment %>
 <%= f.hidden_field :total_price, :value => @total + @postage %>
 <%= f.hidden_field :postage, :value => @postage %>
+<%= f.hidden_field :status, :value => "waiting" %>
 <div>
   <%= f.submit '注文を確定する' %>
 </div>
