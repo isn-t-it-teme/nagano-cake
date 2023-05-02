@@ -10,12 +10,14 @@ class Admin::OrdersController < ApplicationController
   def update
     #注文詳細データの取得
     @order = Order.find(params[:id])
+    @order_product = @order.order_products
     #注文ステータスの更新
-    @order.update(order_params)
+    @order.update!(order_params)
     #注文商品の注文ステータスが「入金確認」だったら
-    
+    if params[:order][:status] == 'confirmation'
     #注文商品の制作ステータスを「制作待ち」に更新
-    
+      @order_product.update(production_status: "waiting_for_production")
+    end
     redirect_to admin_order_path
   end
 

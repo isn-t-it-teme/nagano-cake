@@ -5,5 +5,5 @@ class Order < ApplicationRecord
   enum payment: { credit_card: 0, transfer: 1 }
   #注文ステータスのenum
   enum status: {waiting: 0, confirmation: 1, production: 2, prepartion: 3, sent: 4}
-  
+
 end
