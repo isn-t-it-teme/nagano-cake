@@ -26,10 +26,16 @@
       <tr>
         <td><strong>注文ステータス</strong></td>
         <td>
-          <%#= form_with model: @order, url: admin_order_path(@order.id) do |f| %>
-            <%#= f.select :status, Order.statuses_i18n
+          <%= form_with model: @order, url: admin_order_path(@order.id) do |f| %>
+            <%= f.select :status, [
+            [Order.statuses_i18n[:waiting], :waiting],
+            [Order.statuses_i18n[:confirmation], :confirmation],
+            [Order.statuses_i18n[:production], :production],
+            [Order.statuses_i18n[:prepartion], :prepartion],
+            [Order.statuses_i18n[:sent], :sent]
+            ] %>
             <%= f.submit '更新' %>
-          <%# end %>
+          <% end %>
         </td>
       </tr>
     </tbody>
@@ -48,7 +54,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= @order_products.each do |order_product| %>
+      <% @order_products.each do |order_product| %>
       <tr>
         <td><%= order_product.item.name %></td>
         <td><%= order_product.tax_price.to_s(:delimited) %></td>
@@ -57,7 +63,17 @@
           <% @total += order_product.subtotal %>
           <%= order_product.subtotal.to_s(:delimited) %>
         </td>
-        <td></td>
+        <td>
+          <%= form_with model: order_product, url: admin_order_product_path(order_product.id) do |f| %>
+            <%= f.select :production_status, [
+              [OrderProduct.production_statuses_i18n[:cannot_start], :cannot_start],
+              [OrderProduct.production_statuses_i18n[:waiting_for_payment], :waiting_for_payment],
+              [OrderProduct.production_statuses_i18n[:in_production], :in_production],
+              [OrderProduct.production_statuses_i18n[:completion_of_production], :completion_of_production]
+              ] %>
+            <%= f.submit '更新' %>
+            <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>
@@ -68,7 +84,7 @@
   <tbody>
     <tr>
       <td><strong>商品合計</strong></td>
-      <td><%= @total.to_s(:delimited) %></td>
+      <td><%= @total.to_s(:delimited) %>円</td>
     </tr>
     <tr>
       <td><strong>送料</strong></td>
