@@ -21,7 +21,7 @@ class Public::OrdersController < ApplicationController
       @shipping_address = ShippingAddress.find(params[:order][:shipping_address_id])
       @order.postal_code = @shipping_address.postal_code
       @order.address = @shipping_address.address
-      @order.name = @shipping_address.last_name + @shippinng_address.first_name
+      @order.name = @shipping_address.name
 
     else params[:order][:select_shipping_address] == "2"
       #新しいお届け先の場合
@@ -47,7 +47,7 @@ class Public::OrdersController < ApplicationController
         @order_product.product_quantity = cart_item.quantity
         #税抜価格を取得
         @order_product.tax_price = cart_item.item.with_tax_price
-        #制作ステータスを取得
+        #制作ステータスを取得(着手不可をデフォルトに設定)
         @order_product.production_status = 0
         #order_productモデルに保存
         @order_product.save
