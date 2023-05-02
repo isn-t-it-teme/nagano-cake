@@ -25,7 +25,12 @@
       </tr>
       <tr>
         <td><strong>注文ステータス</strong></td>
-        <td></td>
+        <td>
+          <%#= form_with model: @order, url: admin_order_path(@order.id) do |f| %>
+            <%#= f.select :status, Order.statuses_i18n
+            <%= f.submit '更新' %>
+          <%# end %>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -42,30 +47,35 @@
         <th>制作ステータス</th>
       </tr>
     </thead>
-    <thead>
+    <tbody>
+      <%= @order_products.each do |order_product| %>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= order_product.item.name %></td>
+        <td><%= order_product.tax_price.to_s(:delimited) %></td>
+        <td><%= order_product.product_quantity %></td>
+        <td>
+          <% @total += order_product.subtotal %>
+          <%= order_product.subtotal.to_s(:delimited) %>
+        </td>
         <td></td>
       </tr>
-    </thead>
+      <% end %>
+    </tbody>
   </table>
 </div>
 
 <div>
   <tbody>
     <tr>
-      <td>商品合計</td>
+      <td><strong>商品合計</strong></td>
       <td><%= @total.to_s(:delimited) %></td>
     </tr>
     <tr>
-      <td>送料</td>
+      <td><strong>送料</strong></td>
       <td><%= @order.postage %>円</td>
     </tr>
     <tr>
-      <td>請求金額合計</td>
+      <td><strong>請求金額合計</strong></td>
       <td><%= (@total + @order.postage).to_s(:delinited) %>円</td>
     </tr>
   </tbody>
