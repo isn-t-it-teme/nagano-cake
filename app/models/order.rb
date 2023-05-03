@@ -6,4 +6,10 @@ class Order < ApplicationRecord
   #注文ステータスのenum
   enum status: {waiting: 0, confirmation: 1, production: 2, prepartion: 3, sent: 4}
 
+
+  def subtotal
+    tax_price * product_quantity
+  end
+
 end
+
