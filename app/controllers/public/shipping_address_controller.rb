@@ -1,4 +1,5 @@
 class Public::ShippingAddressController < ApplicationController
+  before_action :authenticate_customer!
   def index
     @shipping_address = ShippingAddress.new
     #current_customerに登録されている住所の一覧（アソシエーション）

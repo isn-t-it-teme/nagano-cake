@@ -23,6 +23,9 @@
 
               <!--会員がログインしている場合-->
               <% if customer_signed_in? %>
+                <div>
+                  <p>ようこそ<%= current_customer.last_name %><%= current_customer.first_name %>さん</p>
+                </div>
                 <li>
                   <%= link_to customers_my_page_path, class: 'nav-link text-dark' do %>
                     <i class="fas fa-user"></i>マイページ
