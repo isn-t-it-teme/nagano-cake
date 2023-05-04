@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
   def index
     #current_customerに登録されているカート内商品(アソシエーション)
      @cart_items = current_customer.cart_items

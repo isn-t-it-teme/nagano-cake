@@ -11,5 +11,10 @@ class Order < ApplicationRecord
     tax_price * product_quantity
   end
 
+  with_options presence: true do
+    validates :postal_code
+    validates :address
+    validates :name
+  end
 end
 
