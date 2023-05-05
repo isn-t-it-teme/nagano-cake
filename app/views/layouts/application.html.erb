@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light border border-bottom-dark">
         <div class="container">
           <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,5 +104,14 @@
     <main>
     <%= yield %>
     </main>
+    <footer>
+      <div class="container">
+        <div class="mx-auto">
+          <div class="small text-center textmuted">
+            @nagano-cake 2023
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
