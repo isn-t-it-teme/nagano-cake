@@ -6,12 +6,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    #郵便番号と住所と名前のどれか一つでも空のものがあったらリダイレクトをする ||←or
-    if params[:order][:postal_code] == "" ||  params[:order][:address] == "" ||  params[:order][:name] == ""
-      @order = Order.new
-      @customer = current_customer
-      render :new
-    end
     @order = Order.new(order_params)
     @postage = 800
     @total = 0
@@ -32,8 +26,12 @@ class Public::OrdersController < ApplicationController
 
     else params[:order][:select_shipping_address] == "2"
       #新しいお届け先の場合
-
-
+      #郵便番号と住所と名前のどれか一つでも空のものがあったらリダイレクトをする ||←or
+      if params[:order][:postal_code] == "" ||  params[:order][:address] == "" ||  params[:order][:name] == ""
+        @order = Order.new
+        @customer = current_customer
+        render :new
+      end
     end
   end
 
