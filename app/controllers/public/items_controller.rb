@@ -18,6 +18,7 @@ class Public::ItemsController < ApplicationController
     @customer = current_customer
   end
 
+  #検索機能アクション
   def search
     @items = Item.search(params[:keyword]).page(params[:id])
     @keyword = params[:keyword]
