@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get 'orders/completed'
     resources:orders, only: [:new, :create, :index, :show]
     resources:shipping_address, only: [:index, :create, :edit, :update, :destroy]
+    get 'search' => 'items#search'
   end
 
   get '/admin' => 'admin/homes#top'
