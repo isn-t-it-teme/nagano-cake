@@ -14,13 +14,13 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light border border-bottom-dark">
           <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-4 text-center">
               <a class="navbar-brand" href="/"><%= image_tag 'logo.png', size: '150x150' %></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse col-md-10" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse col-md-8" id="navbarNavDropdown">
               <div class="col-md-3">
                 <% if customer_signed_in? %>
                   <p>ようこそ<%= current_customer.last_name %><%= current_customer.first_name %>さん</p>
@@ -129,7 +129,7 @@
     </main>
     <footer>
       <div class="container">
-        <div class="mx-auto">
+        <div class="mx-auto ">
           <div class="small text-center textmuted">
             @nagano-cake 2023
           </div>

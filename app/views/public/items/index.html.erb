@@ -1,15 +1,33 @@
-<h3>商品一覧(全<%= @items.count %>件)</h3>
-<%= render 'genres_sidebar', genres: @genres %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <%= render 'genres_sidebar', genres: @genres %>
+    </div>
 
-<% @items.each do |f| %>
-  <div>
-    <%= link_to item_path(f.id) do %>
-      <%= image_tag f.get_image(100,100) %>
-    <% end %>
-    <%= f.name %>
-    ¥<%= ((f.price*1.1).floor).to_s(:delimited) %>
+    <div class="col-md-10">
+      <div>
+        <h3 style="float: left;">商品一覧</h3>
+        <p class="mt-2"style="float: left;">(全<%= @items.count %>件)</p>
+      </div>
+      <div style="clear: both;">
+        <div class="row">
+          <% @items.each do |f| %>
+            <div class="col-3">
+              <%= link_to item_path(f.id) do %>
+                <%= image_tag f.get_image(100,100) %>
+              <% end %><br>
+              <%= f.name %><br>
+              ¥<%= ((f.price*1.1).floor).to_s(:delimited) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-5">
+          <%= paginate @items %>
+        </div>
+      </div>
+    </div>
   </div>
-
-<% end %>
-
-<%= paginate @items %>
+</div>
