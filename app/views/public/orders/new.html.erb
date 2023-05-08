@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mb-3">
-    <div class="col-md-3 text-center">
+    <div class="col-md-3 text-center bg-light text-dark">
       <h3>注文情報入力</h3>
     </div>
   </div>
@@ -19,12 +19,13 @@
     <% end %>
 
     <div class="row">
-      <div class="col col-md-1 text-letf">
+      <div class="col col-md-1 float-start">
         <p><strong>支払方法</strong></p>
       </div>
     </div>
     <div class="row">
-      <div class="col col-md-2">
+        <div class="col-md-1"></div>
+      <div class="col col-md-11">
         <div>
           <%= f.radio_button :payment, Order.payments.key(0) %>
           <%= f.label :payment, Order.payments_i18n[:credit_card] %>
@@ -44,41 +45,45 @@
     </div>
 
     <div class="row">
-      <div class="col col-md-10">
+      <div class="col-md-1"></div>
+      <div class="col col-md-11 mb-3">
         <%= f.radio_button :select_shipping_address,0 %>
         <%= f.label :select_shipping_address, "ご自身の住所" %><br>
         〒<%= @current_customer.postal_code %> <%= @current_customer.address %><br>
         <%= @current_customer.last_name %> <%= @current_customer.first_name %>
       </div>
-      <div class="col col-md-10">
+
+      <div class="col-md-1"></div>
+      <div class="col col-md-11 mb-3">
         <%= f.radio_button :select_shipping_address,1 %>
         <%= f.label :select_shipping_address, "登録住所から選択" %><br>
         <%= f.select :shipping_address_id, options_from_collection_for_select(@current_customer.shipping_addresses, :id, :address_display) %>
       </div>
-      <div class="col col-md-10">
+
+      <div class="col-md-1"></div>
+      <div class="col col-md-11 mb-3">
         <%= f.radio_button :select_shipping_address,2 %>
         <%= f.label :select_shipping_address, "新しいお届け先" %><br>
+
         <table>
           <tbody>
             <tr>
-              <td>郵便番号(ハイフンなし)</td>
-              <td><%= f.text_field :postal_code %></td>
+              <td><label class="form-label" for="inputpostal_cod">郵便番号(ハイフンなし)</label></td>
+              <td><%= f.text_field :postal_code, autofocus: true, id:"inputPostal_code", placheholder:"Postal_code", class:"form-control" %></td>
             </tr>
             <tr>
-              <td>住所</td>
-              <td><%= f.text_area :address %></td>
+              <td><label class="form-label" for="inputaddress">住所</label></td>
+              <td><%= f.text_area :address, autofocus: true, id:"inputAddress", placheholder:"Address", class:"form-control" %></td>
             </tr>
             <tr>
-              <td>宛名</td>
-              <td><%= f.text_field :name %></td>
+              <td><label class="form-label" for="inputname">宛名</label></td>
+              <td><%= f.text_field :name, autofocus: true, id:"inputname", placheholder:"Name", class:"form-control" %></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
 
-    <div class="row mb-5">
-      <div class="col-md-12 text-center">
+      <div class="col-md-12 text-center mb-3">
         <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
       </div>
     </div>

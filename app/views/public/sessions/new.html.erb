@@ -1,9 +1,15 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+  <div class="row mb-3">
+    <div class=" col col-md-2 bg-light text-center">
       <h4>ログイン</h4>
+    </div>
+  </div>
 
-      <h5>会員の方はこちらからログイン</h5>
+    <div class="row mb-3">
+      <div class="col col-md-4 bg-light text-center">
+        <h5>会員の方はこちらからログイン</h5>
+      </div>
+    </div>
 
       <%= form_with model: @customer, url: customer_session_path do |f| %>
           <div class="form-group row">
@@ -39,3 +45,4 @@
       </div>
     </div>
   </div>
+</div>

@@ -19,10 +19,10 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources:items, only: [:index, :show]
+    get 'customers/confilm' => 'customers#confilm'
     get 'customers/my_page' => 'customers#show'
     patch 'customers/my_page' => 'customers#update'
     get 'customers/my_page/edit' => 'customers#edit'
-    get 'customers/confilm' => 'customers#confilm'
     patch 'customers/withdraw' => 'customers#withdraw'
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     resources:cart_items, only: [:index, :create, :update, :destroy]
