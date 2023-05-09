@@ -6,7 +6,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
       <%= form_with model:  @customer, url: customer_registration_path do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
@@ -23,17 +23,17 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= f.label :name, "名前" %></td>
+              <td style="width: 250px"><%= f.label :name, "名前" %></td>
               <td class="text-right"><%= f.label :last_name, "(姓)" %></td>
-              <td><%= f.text_field :last_name %></td>
-              <td><%= f.label :first_name, "(名)" %></td>
+              <td style="width: 20px"><%= f.text_field :last_name %></td>
+              <td class="text-right"><%= f.label :first_name, "(名)" %></td>
               <td><%= f.text_field :first_name %></td>
             </tr>
             <tr>
-              <td><%= f.label :name_kana, "フリガナ" %></td>
+              <td style="width: 250px"><%= f.label :name_kana, "フリガナ" %></td>
               <td class="text-right"><%= f.label :last_name_kana, "(セイ)" %></td>
-              <td><%= f.text_field :last_name_kana %></td>
-              <td><%= f.label :first_name_kana, "(メイ)" %></td>
+              <td style="width: 20px"><%= f.text_field :last_name_kana %></td>
+              <td class="text-right"><%= f.label :first_name_kana, "(メイ)" %></td>
               <td><%= f.text_field :first_name_kana %></td>
             </tr>
             <tr>
@@ -43,35 +43,44 @@
               <td></td>
             </tr>
             <tr>
-              <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+              <td colspan="2"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
               <td><%= f.text_field :postal_code %></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td><%= f.label :address, "住所" %></td>
-              <td><%= f.text_area :address, size:"50x1" %></td>
+              <td colspan="2"><%= f.label :address, "住所" %></td>
+              <td colspan="3"><%= f.text_area :address, size:"45x1" %></td>
             </tr>
             <tr>
-              <td><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></td>
+              <td colspan="2"><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></td>
               <td><%= f.text_field :telephone_number %></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>
+              <td colspan="2">
                 <%= f.label :password, "パスワード" %>
               　<% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> 文字以上)</em>
                 <% end %>
               </td>
               <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td><%= f.label :password_confirmation, "パスワード (確認用)"  %></td>
+              <td colspan="2"><%= f.label :password_confirmation, "パスワード (確認用)"  %></td>
               <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
 
 
-        <div class="col-md-12 mb-3 text-center">
+
+        <div class="col-md-12 my-4 text-center">
           <div class="actions">
             <%= f.submit " 新規登録 ", class: "btn btn-success" %>
           </div>

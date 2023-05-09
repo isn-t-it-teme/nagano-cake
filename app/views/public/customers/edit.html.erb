@@ -8,55 +8,70 @@
   <div class="row">
     <div class="col-md-12">
       <%= form_with model: @customer, url: customers_my_page_path do |f| %>
-        <div class="field">
-          <%= f.label :名前 %>
-          <%= f.label :last_name, "(姓)" %>
-          <%= f.text_field :last_name %>
-          <%= f.label :first_name, "(名)" %>
-          <%= f.text_field :first_name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :フリガナ %>
-          <%= f.label :last_name_kana, "(セイ)" %>
-          <%= f.text_field :last_name_kana %>
-          <%= f.label :first_name_kana, "(メイ)" %>
-          <%= f.text_field :first_name_kana %>
-        </div>
-
-        <div class="field">
-          <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-          <%= f.text_field :postal_code %>
-        </div>
-
-        <div class="field">
-          <%= f.label :address, "住所" %>
-          <%= f.text_area :address %>
-        </div>
-
-        <div class="field">
-          <%= f.label :telephone_number, "電話番号(ハイフンなし)" %>
-          <%= f.text_field :telephone_number %>
-        </div>
-
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+      <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width: 250px"><%= f.label :name, "名前" %></td>
+              <td class="text-right"><%= f.label :last_name, "(姓)" %></td>
+              <td style="width: 20px"><%= f.text_field :last_name %></td>
+              <td class="text-right"><%= f.label :first_name, "(名)" %></td>
+              <td><%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+              <td style="width: 250px"><%= f.label :name_kana, "フリガナ" %></td>
+              <td class="text-right"><%= f.label :last_name_kana, "(セイ)" %></td>
+              <td style="width: 20px"><%= f.text_field :last_name_kana %></td>
+              <td class="text-right"><%= f.label :first_name_kana, "(メイ)" %></td>
+              <td><%= f.text_field :first_name_kana %></td>
+            </tr>
+            <tr>
+              <td colspan="2"><%= f.label :email, "メールアドレス" %></td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="2"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+              <td><%= f.text_field :postal_code %></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="2"><%= f.label :address, "住所" %></td>
+              <td colspan="3"><%= f.text_area :address, size:"45x1" %></td>
+            </tr>
+            <tr>
+              <td colspan="2"><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></td>
+              <td><%= f.text_field :telephone_number %></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
 
-      <div class="col-md-4 offset-2">
+      <div class="col-md-4 offset-2 my-4">
         <div class="actions">
           <%= f.submit "編集内容を保存", class: "btn btn-success" %>
         </div>
       </div>
 
-      <div class="col-md-5 offset-1">
+      <div class="col-md-5 offset-1 my-4">
         <div class="actions">
           <%= link_to "退会する", customers_confilm_path, class: "btn btn-danger" %>
         </div>
       </div>
+    </div>
 
       <% end %>
   </div>
