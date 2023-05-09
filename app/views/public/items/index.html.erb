@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <%= render 'genres_sidebar', genres: @genres %>
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-9 my-4">
       <div>
         <h3 style="float: left;">商品一覧</h3>
         <p class="mt-2"style="float: left;">(全<%= @items.count %>件)</p>
@@ -12,9 +12,9 @@
       <div style="clear: both;">
         <div class="row">
           <% @items.each do |f| %>
-            <div class="col-3">
+            <div class="col-3 mb-3">
               <%= link_to item_path(f.id) do %>
-                <%= image_tag f.get_image(100,100) %>
+                <%= image_tag f.get_image(200,200) %>
               <% end %><br>
               <%= f.name %><br>
               ¥<%= ((f.price*1.1).floor).to_s(:delimited) %>

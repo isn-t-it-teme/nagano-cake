@@ -67,7 +67,7 @@ class Public::OrdersController < ApplicationController
 
   def index
    # @orders = Order.where(customer_id: current_customer.id).order(id: "DESC")
-   @orders = Order.page(params[:page])
+   @orders = Order.page(params[:page]).per(5)
   end
 
   def show
