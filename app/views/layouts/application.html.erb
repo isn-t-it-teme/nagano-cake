@@ -81,12 +81,6 @@
                     <i class="fas fa-sign-out-alt"></i>ログアウト
                   <% end %>
                 </li>
-                <div class="search-form">
-                  <%= form_with url: search_path, method: :get, local: true do |f| %>
-                  <%= f.text_field :keyword, value: @keyword %>
-                  <%= f.submit "検索" %>
-                  <% end %>
-                </div>
               <!--ログインしていない場合-->
               <% else %>
                 <li>
