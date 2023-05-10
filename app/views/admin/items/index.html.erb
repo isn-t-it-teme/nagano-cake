@@ -33,9 +33,9 @@
           <td><%= f.price.to_s(:delimited) %></td>
           <td><%= f.genre.name %></td>
           <% if f.sale_status %>
-            <td>販売中</td>
+            <td><span class="green">販売中</span></td>
           <% else %>
-            <td>販売停止中</td>
+            <td><span class="red">販売停止中</span></td>
           <% end %>
         </tr>
         <% end %>
@@ -47,3 +47,11 @@
 <div>
   <%= paginate @items %>
 </div>
+
+<style>
+.green{color: mediumseagreen;
+}
+
+.red{color: red;
+}
+</style>

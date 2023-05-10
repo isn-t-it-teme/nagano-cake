@@ -9,12 +9,12 @@
             <table>
               <tbody>
                 <tr>
-                  <td><%= f.label :email, "メールアドレス" %></td>
-                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
+                  <td class="login"><%= f.label :email, "メールアドレス" %></td>
+                  <td class="login"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
                 </tr>
                 <tr>
-                  <td><%= f.label :password,"パスワード" %></td>
-                  <td><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></td>
+                  <td class="login"><%= f.label :password,"パスワード" %></td>
+                  <td class="login"><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></td>
                 </tr>
               </tbody>
             </table>
