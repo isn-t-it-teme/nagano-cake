@@ -1,38 +1,47 @@
-<h3>商品一覧</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 my-3 text-center bg-light text-dark">
+      <h3>商品一覧</h3>
+    </div>
 
-<%= link_to "＋", new_admin_item_path %>
+    <div class="col-md-9 my-3 text-right">
+      <%= link_to "＋", new_admin_item_path, class: "btn btn-outline-secondary rounded-circle" %>
+    </div>
+  </div>
 
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |f| %>
-      <tr>
-        <td><%= f.id %></td>
-        <td>
-          <%= link_to admin_item_path(f.id) do %>
-            <%= f.name %>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr class="bg-light">
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |f| %>
+        <tr>
+          <td><%= f.id %></td>
+          <td >
+            <%= link_to admin_item_path(f.id) do %>
+              <%= f.name %>
+            <% end %>
+          </td>
+          <td><%= f.price.to_s(:delimited) %></td>
+          <td><%= f.genre.name %></td>
+          <% if f.sale_status %>
+            <td>販売中</td>
+          <% else %>
+            <td>販売停止中</td>
           <% end %>
-        </td>
-        <td><%= f.price.to_s(:delimited) %></td>
-        <td><%= f.genre.name %></td>
-        <% if f.sale_status %>
-          <td>販売中</td>
-        <% else %>
-          <td>販売停止中</td>
+        </tr>
         <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div>
