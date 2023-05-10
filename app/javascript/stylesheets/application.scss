@@ -1,6 +1,10 @@
 @use '~bootstrap/scss/bootstrap';
 @use '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+main{
+  padding-bottom: 50px
+}
+
 .navbar {
   display: block;
 }
