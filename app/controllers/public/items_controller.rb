@@ -7,7 +7,7 @@ class Public::ItemsController < ApplicationController
       @items = @genre.items.page(params[:id])
     #indexのページの表示
     else
-      @items = Item.page(params[:page]).per(8)
+      @items = Item.page(params[:page]).per(8).order(id: "DESC")
     end
   end
 

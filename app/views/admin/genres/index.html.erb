@@ -5,24 +5,25 @@
     </div>
   </div>
 
-  <div class="row mb-5">
-    <div class="col-md-4">
-      <%= form_with model: @genre, url: admin_genres_path do |f| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>ジャンル名</td>
-            <td><%= f.text_field :name %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <%= form_with model: @genre, url: admin_genres_path do |f| %>
+    <div class="row mb-5">
+      <div class="col-md-5">
+        <table>
+          <tbody>
+            <tr>
+              <td>ジャンル名</td>
+              <td style="width: 20px;"></td>
+              <td><%= f.text_field :name %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <div class="col-md-8">
-      <%= f.submit '新規登録', class: "btn btn-info" %>
+      <div class="col-md-7">
+        <%= f.submit '新規登録', class: "btn btn-info" %>
+      </div>
     </div>
-      <% end %>
-  </div>
+  <% end %>
 
 
 <div class="row">

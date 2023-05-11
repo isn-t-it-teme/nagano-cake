@@ -1,24 +1,30 @@
 ja:
-    enums:
-      order:
-        payment:
-          credit_card: "クレジットカード"
-          transfer: "銀行振込"
-        status:
-          waiting: "入金待ち"
-          confirmation: "入金確認"
-          production: "制作中"
-          prepartion: "発送準備中"
-          sent: "発送済み"
-      order_product:
-        production_status:
-          cannot_start: "着手不可"
-          waiting_for_production: "制作待ち"
-          in_production: "制作中"
-          completion_of_production: "制作完了"
+  views:
+    pagination:
+      next: "NEXT>>"
+      previous: "<<PREV"
+
+
+  enums:
+    order:
+      payment:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
+      status:
+        waiting: "入金待ち"
+        confirmation: "入金確認"
+        production: "制作中"
+        prepartion: "発送準備中"
+        sent: "発送済み"
+    order_product:
+      production_status:
+        cannot_start: "着手不可"
+        waiting_for_production: "制作待ち"
+        in_production: "制作中"
+        completion_of_production: "制作完了"
 
 
 
-      time:
-        formats:
-          default: "%Y/%m/%d %H:%M:%S"
+    time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
