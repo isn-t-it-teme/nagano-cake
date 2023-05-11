@@ -7,49 +7,56 @@
 
 <div class="d-flex justify-content-center">
   <div class="row">
-    <div class="col-md-12 mb-4">
     <%= form_with model: @item, url: admin_items_path do |f| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>商品画像</td>
-            <td><%= f.file_field :image, accept: "image/*" %></td>
-          </tr>
-          <tr>
-            <td>商品名</td>
-            <td><%= f.text_field :name %></td>
-          </tr>
-          <tr>
-            <td>商品説明</td>
-            <td><%= f.text_area :introduction, size: "45x1" %></td>
-          </tr>
-          <tr>
-            <td>ジャンル</td>
-            <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></td>
-          </tr>
-          <tr>
-            <td>税抜価格</td>
-            <td><%= f.text_field :price %>円</td>
-          </tr>
-          <tr>
-            <td>販売ステータス</td>
-            <td>
-              <%= f.radio_button :sale_status, true %>
-              <%= f.label :sale_status, '販売中' %>
-            </td>
-            <td>
-              <%= f.radio_button :sale_status, false %>
-              <%= f.label :sale_status, '販売停止中' %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-    <div class="col-md-12 text-center mt-2">
-      <%= f.submit '  新規登録  ', class: "btn btn-success" %>
-    </div>
+      <div class="col-md-12 mb-4">
+        <table>
+          <tbody>
+            <tr>
+              <td>商品画像</td>
+              <td style="width: 15px;"></td>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+              <td>商品名</td>
+              <td style="width: 15px;"></td>
+              <td><%= f.text_field :name %></td>
+            </tr>
+            <tr>
+              <td>商品説明</td>
+              <td style="width: 15px;"></td>
+              <td><%= f.text_area :introduction, size: "45x1" %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td style="width: 15px;"></td>
+              <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></td>
+            </tr>
+            <tr>
+              <td>税抜価格</td>
+              <td style="width: 15px;"></td>
+              <td><%= f.text_field :price %>円</td>
+            </tr>
+            <tr>
+              <td>販売ステータス</td>
+              <td style="width: 15px;"></td>
+              <td>
+                <%= f.radio_button :sale_status, true %>
+                <%= f.label :sale_status, '販売中' %>
+              </td>
+              <td>
+                <%= f.radio_button :sale_status, false %>
+                <%= f.label :sale_status, '販売停止中' %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="col-md-12 text-center mt-2">
+        <%= f.submit '  新規登録  ', class: "btn btn-success" %>
+      </div>
     <% end %>
+    </div>
   </div>
 </div>

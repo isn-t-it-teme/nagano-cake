@@ -3,13 +3,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def after_sign_in_path_for(resource_or_scope)
-    if resource_or_scope.is_a?(Admin)
-        admin_path
-    else
-        customers_my_page_path
-    end
-  end
+  #def after_sign_in_path_for(resource_or_scope)
+    #if resource_or_scope.is_a?(Admin)
+        #admin_path
+    #else
+     #   root_path
+    #end
+  #end
+  #新規登録後はマイページへ遷移、ログイン後はトップページの遷移のため各コントローラへafter_sigin_in_pathを使って記入
 
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :customer

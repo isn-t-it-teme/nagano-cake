@@ -6,8 +6,8 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 mb-5">
-      <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+    <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+      <div class="col-md-12 mb-5">
         <table>
           <tbody>
             <tr>
@@ -16,29 +16,29 @@
             </tr>
             <tr>
               <td>氏名</td>
-              <td><%= f.text_field :last_name, class:"form-control" %></td>
-              <td><%= f.text_field :first_name, class:"form-control" %></td>
+              <td><%= f.text_field :last_name %></td>
+              <td><%= f.text_field :first_name %></td>
             </tr>
             <tr>
               <td>フリガナ</td>
-              <td><%= f.text_field :last_name_kana, class:"form-control" %></td>
-              <td><%= f.text_field :first_name_kana, class:"form-control" %></td>
+              <td><%= f.text_field :last_name_kana %></td>
+              <td><%= f.text_field :first_name_kana %></td>
             </tr>
             <tr>
               <td>郵便番号</td>
-              <td><%= f.text_field :postal_code, class:"form-control" %></td>
+              <td><%= f.text_field :postal_code %></td>
             </tr>
             <tr>
               <td>住所</td>
-              <td><%= f.text_area :address, class:"form-control" %></td>
+              <td colspan="2"><%= f.text_area :address, size: "50x1" %></td>
             </tr>
             <tr>
               <td>電話番号</td>
-              <td><%= f.text_field :telephone_number, class:"form-control" %></td>
+              <td><%= f.text_field :telephone_number %></td>
             </tr>
             <tr>
               <td>メールアドレス</td>
-              <td><%= f.text_field :email, class:"form-control" %></td>
+              <td><%= f.text_field :email %></td>
             </tr>
             <tr>
               <td>会員ステータス</td>

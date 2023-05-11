@@ -7,8 +7,8 @@
 
   <div class="d-flex justify-content-center">
     <div class="row">
-      <div class="col-md-12 mb-4">
-        <%= form_with model: @item, url: admin_item_path(@item) do |f| %>
+      <%= form_with model: @item, url: admin_item_path(@item) do |f| %>
+        <div class="col-md-12 mb-4">
           <table>
             <tbody>
               <tr>
@@ -21,7 +21,7 @@
               </tr>
               <tr>
                 <td>商品説明</td>
-                <td><%= f.text_area :introduction %></td>
+                <td><%= f.text_area :introduction, size: "50x1" %></td>
               </tr>
               <tr>
                 <td>ジャンル</td>
@@ -44,12 +44,12 @@
               </tr>
             </tbody>
           </table>
-      </div>
+        </div>
 
-      <div class="col-md-12 text-center mt-2">
-        <%= f.submit '変更を保存', class: "btn btn-success" %>
-      </div>
-        <% end %>
+        <div class="col-md-12 text-center mt-2">
+          <%= f.submit '変更を保存', class: "btn btn-success" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
